@@ -1,0 +1,46 @@
+#features
+  background: #f9f9f9
+  text-align: center
+  position: relative
+  height: 500px
+  @media only screen and (max-width: 680px)
+    height: auto
+
+  &:after
+    content: ' '
+    bottom: 0
+    position: absolute
+    background: inherit
+    height: 100%
+    left: 0
+    right: 0
+    transform: skewY(-10deg)
+    z-index: -1
+
+
+  h2
+    margin: 80px 0
+
+  .cards
+      display: grid
+      grid-template-columns: repeat(3,auto)
+      grid-gap: 30px
+
+      @media only screen and (max-width: 680px)
+        grid-template-columns: repeat(1,auto)
+
+.feature-card
+  background: white
+  padding: 20px
+  border-radius: 4px
+  box-shadow: 0px 12px 10px -10px rgba(0 , 0, 0, .2)
+
+  h3
+    margin: 10px 0 0
+
+.device
+  border-top: 3px solid $ocean
+.shoe
+  border-top: 3px solid $purps
+.car
+  border-top: 3px solid $seafoam
