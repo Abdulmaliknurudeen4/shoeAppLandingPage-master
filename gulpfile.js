@@ -7,8 +7,31 @@ import cleanCSS from 'gulp-clean-css';
 import plumber from 'gulp-plumber';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-import sourceMapsPkg from 'gulp-sourcemaps';
-const {sourcemaps} = sourceMapsPkg;
+import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import browserSync from 'browser-sync';
+
+const sass = gulpSass(dartSass);
+
+
+// --------------------------------------------
+// Stand Alone Tasks
+// --------------------------------------------
+
+// Compiles all SASS files
+gulp.task('sass', function() {
+    gulp.src('source/sass/**/*.sass')
+    .pipe(sourcemaps.init())
+        .pipe(plumber())
+        .pipe(sass({
+            style: 'compressed'
+        }))
+        .pipe(rename({
+            basename: 'main',
+            suffix: '.min'
+          }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('build/assets/css'));
+});
+
