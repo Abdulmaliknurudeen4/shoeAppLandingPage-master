@@ -1,18 +1,38 @@
+import images from 'gulp-imagemin';
+import gulp from 'gulp';
+import autoprefixer from 'gulp-autoprefixer';
+import concat from 'gulp-concat';
+import del from 'del';
+import cleanCSS from 'gulp-clean-css';
+import plumber from 'gulp-plumber';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import sourceMapsPkg from 'gulp-sourcemaps';
+const {sourcemaps} = sourceMapsPkg;
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
+import browserSync from 'browser-sync';
+
+
 // --------------------------------------------
 // Dependencies
 // --------------------------------------------
-var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    concat = require('gulp-concat'),
-    del = require('del'),
-    minifycss = require('gulp-minify-css'),
-    plumber = require('gulp-plumber'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify'),
-    images = require('gulp-imagemin'),
-    browserSync = require('browser-sync').create();
+// var gulp = require('gulp'),
+//     autoprefixer = require('gulp-autoprefixer'),
+//     concat = require('gulp-concat'),
+//     del = require('del'),
+//     cleanCSS = require('gulp-clean-css'),
+//     plumber = require('gulp-plumber'),
+//     sass = require('gulp-sass')(require('sass')),
+//     sourcemaps = require('gulp-sourcemaps'),
+//     rename = require('gulp-rename'),
+//     uglify = require('gulp-uglify'),
+//     images = require('gulp-imagemin'),
+//     browserSync = require('browser-sync').create();
+
+// test
+const sass = gulpSass(dartSass);
+//
 
 
 // paths
